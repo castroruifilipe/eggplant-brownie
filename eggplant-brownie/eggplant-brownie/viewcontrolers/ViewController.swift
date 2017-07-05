@@ -10,13 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var nameField : UITextField!
-    @IBOutlet var happinessField : UITextField!
+    @IBOutlet var nameField : UITextField?
+    @IBOutlet var happinessField : UITextField?
 
     @IBAction func add() {
-        let name = nameField.text;
-        let happiness = happinessField.text;
-        print("eaten: \(name) \(happiness)!");
+        if (nameField == nil || happinessField == nil) {
+            return
+        }
+        
+        let name = nameField!.text
+        let happinessS = happinessField!.text
+        if (happinessS == nil || name == nil) {
+            return
+        }
+        let happiness = Int(happinessS!)
+        if (happiness == nil) {
+            return
+        }
+        let meal = Meal(name: name!, happiness: happiness!)
+        print("eaten: \(meal.name) \(meal.happiness)!");
     }
 
 
