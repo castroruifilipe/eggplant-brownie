@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MealsTableViewController: UITableViewController {
+class MealsTableViewController: UITableViewController, AddMealDelegate {
 
     var meals = [Meal(name: "Eggplant brownie", happiness: 5),
                  Meal(name: "Zucchini Muffin", happiness: 3)]
@@ -30,6 +30,18 @@ class MealsTableViewController: UITableViewController {
         var cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: nil)
         cell.textLabel?.text = meal.name
         return cell
+    }
+    
+    func add(meal: Meal) {
+        meals.append(meal)
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "addMeal") {
+            let view = segue.destination as! ViewController
+            view.delegate = self
+        }
     }
     
 }
