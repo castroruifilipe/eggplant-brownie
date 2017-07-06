@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol AddMealDelegate {
     func add(meal: Meal)
 }
@@ -28,31 +29,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
 
     @IBAction func add() {
+        if let meal = getMealFromForm() {
+            if let meals = delegate {
+                meals.add(meal: meal)
+            }
+        
+            if let navigation = self.navigationController {
+                navigation.popViewController(animated: true)
+            } else {
+                Alert(controller: self).show(message: "Unexpected error, but the meal was added.")
+            }
+        } else {
+            Alert(controller: self).show()
+        }
+    }
+    
+    func getMealFromForm() -> Meal? {
         if (nameField == nil || happinessField == nil) {
-            return
+            return nil
         }
         
         let name = nameField!.text
         let happinessS = happinessField!.text
         if (happinessS == nil || name == nil) {
-            return
+            return nil
         }
         let happiness = Int(happinessS!)
         if (happiness == nil) {
-            return
+            return nil
         }
+        
         let meal = Meal(name: name!, happiness: happiness!)
         meal.items = selected
+        
         print("eaten: \(meal.name) \(meal.happiness) \(meal.items)!");
-        
-        if (delegate == nil) {
-            return
-        }
-        delegate!.add(meal: meal)
-        
-        if let navigation = self.navigationController {
-            navigation.popViewController(animated: true)
-        }
+        return meal
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,16 +103,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newItem = NewItemViewController(delegate: self)
         if let navigation = navigationController {
             navigation.pushViewController(newItem, animated: true)
+        } else {
+            Alert(controller: self).show()
         }
         
     }
     
     func addNew(item: Item) {
         items.append(item)
-        if (tableView == nil) {
-            return
+        if let table = tableView {
+            table.reloadData()
+        } else {
+            Alert(controller: self).show(message: "Unexpected error, but the item was added.")
         }
-        tableView!.reloadData()
     }
     
 
