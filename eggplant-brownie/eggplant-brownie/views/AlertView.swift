@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class Alert {
+class AlertView {
     
     let controller: UIViewController
     

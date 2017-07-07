@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		820A52F71F0E8EC300232B82 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820A52F61F0E8EC300232B82 /* Alert.swift */; };
+		820A52F71F0E8EC300232B82 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820A52F61F0E8EC300232B82 /* AlertView.swift */; };
 		821D18611F0A7FF50064EF75 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D18601F0A7FF50064EF75 /* Meal.swift */; };
 		821D18631F0A82C70064EF75 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D18621F0A82C70064EF75 /* Item.swift */; };
-		82812B371F0D853100B1E21A /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82812B351F0D853100B1E21A /* NewItemViewController.xib */; };
+		82550B831F0F975100242495 /* RemoveMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82550B821F0F975100242495 /* RemoveMealView.swift */; };
+		82812B371F0D853100B1E21A /* NewItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82812B351F0D853100B1E21A /* NewItemView.xib */; };
 		82812B391F0D857E00B1E21A /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82812B381F0D857E00B1E21A /* NewItemViewController.swift */; };
 		82C225321F084CC2009DC144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C225311F084CC2009DC144 /* AppDelegate.swift */; };
 		82C225391F084CC2009DC144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C225381F084CC2009DC144 /* Assets.xcassets */; };
@@ -40,10 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		820A52F61F0E8EC300232B82 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		820A52F61F0E8EC300232B82 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		821D18601F0A7FF50064EF75 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		821D18621F0A82C70064EF75 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		82812B351F0D853100B1E21A /* NewItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
+		82550B821F0F975100242495 /* RemoveMealView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveMealView.swift; sourceTree = "<group>"; };
+		82812B351F0D853100B1E21A /* NewItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemView.xib; sourceTree = "<group>"; };
 		82812B381F0D857E00B1E21A /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		82C2252E1F084CC2009DC144 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C225311F084CC2009DC144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,8 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				82D6BEB61F0CECF600CE4EE4 /* Main.storyboard */,
-				82812B351F0D853100B1E21A /* NewItemViewController.xib */,
-				820A52F61F0E8EC300232B82 /* Alert.swift */,
+				82812B351F0D853100B1E21A /* NewItemView.xib */,
+				820A52F61F0E8EC300232B82 /* AlertView.swift */,
+				82550B821F0F975100242495 /* RemoveMealView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -279,7 +282,7 @@
 			files = (
 				82D6BEB71F0CECF600CE4EE4 /* Main.storyboard in Resources */,
 				82C2253C1F084CC2009DC144 /* LaunchScreen.storyboard in Resources */,
-				82812B371F0D853100B1E21A /* NewItemViewController.xib in Resources */,
+				82812B371F0D853100B1E21A /* NewItemView.xib in Resources */,
 				82C225391F084CC2009DC144 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +314,8 @@
 				821D18631F0A82C70064EF75 /* Item.swift in Sources */,
 				821D18611F0A7FF50064EF75 /* Meal.swift in Sources */,
 				82C225321F084CC2009DC144 /* AppDelegate.swift in Sources */,
-				820A52F71F0E8EC300232B82 /* Alert.swift in Sources */,
+				82550B831F0F975100242495 /* RemoveMealView.swift in Sources */,
+				820A52F71F0E8EC300232B82 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

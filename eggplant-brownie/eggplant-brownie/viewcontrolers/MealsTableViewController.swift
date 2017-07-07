@@ -48,15 +48,16 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
             let row = indexPath!.row
             let meal = meals[row]
             
-            print("meal: \(meal.name) \(meal.happiness)")
-            
-            let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertControllerStyle.alert)
-            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-            details.addAction(ok)
-            
-            present(details, animated: true, completion: nil)
+            RemoveMealView(controller: self).show(meal: meal,
+                                                  handler: {action in
+                                                                self.meals.remove(at: row)
+                                                                self.tableView.reloadData()
+                                                           })
         }
     }
+    
+    
+    
     
     func add(meal: Meal) {
         meals.append(meal)

@@ -62,7 +62,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let meal = Meal(name: name!, happiness: happiness!)
         meal.items = selected
         
-        print("eaten: \(meal.name) \(meal.happiness) \(meal.items)!");
         return meal
     }
 
@@ -104,7 +103,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let navigation = navigationController {
             navigation.pushViewController(newItem, animated: true)
         } else {
-            Alert(controller: self).show()
+            AlertView(controller: self).show()
         }
         
     }
@@ -114,7 +113,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let table = tableView {
             table.reloadData()
         } else {
-            Alert(controller: self).show(message: "Unexpected error, but the item was added.")
+            AlertView(controller: self).show(message: "Unexpected error, but the item was added.")
         }
     }
     
