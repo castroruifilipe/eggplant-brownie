@@ -13,7 +13,7 @@ protocol AddMealDelegate {
     func add(meal: Meal)
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAnItemDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAnItemDelegate, UITextFieldDelegate {
     
     @IBOutlet var nameField: UITextField?
     @IBOutlet var happinessField: UITextField?
@@ -28,6 +28,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         items = Dao().loadItems()
         let newItemButton = UIBarButtonItem(title: "New item", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.showNewItem))
         navigationItem.rightBarButtonItem = newItemButton
+        
+        nameField?.delegate = self
+        happinessField?.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func add() {

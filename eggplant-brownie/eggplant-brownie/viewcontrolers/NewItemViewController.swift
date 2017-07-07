@@ -14,7 +14,7 @@ protocol AddAnItemDelegate {
 }
 
 
-class NewItemViewController: UIViewController {
+class NewItemViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var nameField: UITextField?
     @IBOutlet var caloriesFied: UITextField?
@@ -24,6 +24,8 @@ class NewItemViewController: UIViewController {
     init(delegate: AddAnItemDelegate) {
         self.delegate = delegate
         super.init(nibName: "NewItemView", bundle: nil)
+        nameField?.delegate = self
+        caloriesFied?.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,13 +35,15 @@ class NewItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func addNewItem() {
