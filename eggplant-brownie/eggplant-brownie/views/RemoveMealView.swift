@@ -21,10 +21,10 @@ class RemoveMealView {
     
     func show(meal: Meal, handler: @escaping (UIAlertAction!) -> Void) {
         let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertControllerStyle.alert)
-        let remove = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive, handler: handler)
-        details.addAction(remove)
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         details.addAction(cancel)
+        let remove = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive, handler: handler)
+        details.addAction(remove)
         
         controller.present(details, animated: true, completion: nil)
     }

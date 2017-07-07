@@ -11,13 +11,13 @@ import UIKit
 
 class MealsTableViewController: UITableViewController, AddMealDelegate {
 
-    var meals = [Meal(name: "Eggplant brownie", happiness: 5),
-                 Meal(name: "Zucchini Muffin", happiness: 3)]
+    var meals = Array<Meal>()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        meals = Dao().loadMeals()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,11 +56,9 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
         }
     }
     
-    
-    
-    
     func add(meal: Meal) {
         meals.append(meal)
+        Dao().save(meals: meals)
         tableView.reloadData()
     }
     

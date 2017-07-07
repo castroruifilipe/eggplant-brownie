@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Meal {
+class Meal : NSObject, NSCoding {
     
     let name : String
     let happiness : Int
@@ -19,6 +19,19 @@ class Meal {
     init(name : String, happiness : Int) {
         self.name = name
         self.happiness = happiness
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.happiness = aDecoder.decodeInteger(forKey: "happiness")
+        self.items = aDecoder.decodeObject(forKey: "items") as! Array<Item>
+        
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.happiness, forKey: "happiness")
+        aCoder.encode(self.items, forKey: "items")
     }
     
     func allCallories() -> Double {
@@ -37,4 +50,5 @@ class Meal {
         }
         return message
     }
+    
 }

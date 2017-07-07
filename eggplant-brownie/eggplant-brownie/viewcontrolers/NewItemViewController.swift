@@ -23,7 +23,7 @@ class NewItemViewController: UIViewController {
     
     init(delegate: AddAnItemDelegate) {
         self.delegate = delegate
-        super.init(nibName: "NewItemViewController", bundle: nil)
+        super.init(nibName: "NewItemView", bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
